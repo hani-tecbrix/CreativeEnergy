@@ -166,7 +166,7 @@ body {
   background: var(--brand-hover);
   color: var(--brand-primary);
   transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(0, 255, 209, 0.2);
+  box-shadow: 0 8px 32px rgba(255, 91, 77, 0.3);
 }
 
 .btn-primary:active {
