@@ -309,16 +309,7 @@ body {
   background: var(--bg-secondary);
 }
 
-/* Animation System */
-.dark-transition {
-  transition: all 0.4s ease-in-out;
-}
-
-.dark-hover:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(0, 255, 209, 0.2);
-}
-
+/* Enhanced Cursor Interactions */
 .cursor-glow {
   position: relative;
   overflow: hidden;
@@ -331,13 +322,107 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 255, 209, 0.1), transparent 40%);
+  background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 91, 77, 0.15), transparent 40%);
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.cursor-glow:hover::before {
+  opacity: 1;
+}
+
+.cursor-trail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, rgba(255, 91, 77, 0.6), transparent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.1s ease;
+}
+
+/* Scroll-driven Parallax */
+.parallax-element {
+  will-change: transform;
+  transition: transform 0.1s ease-out;
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-reveal-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-reveal-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal-right.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Enhanced Hover Effects with Primary Color */
+.hover-lift {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(255, 91, 77, 0.2);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(255, 91, 77, 0.3);
+}
+
+/* Magnetic Button Effect */
+.magnetic-button {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.magnetic-button:hover {
+  transform: scale(1.05);
+}
+
+.magnetic-button::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, rgba(255, 91, 77, 0.5), transparent, rgba(255, 91, 77, 0.5));
+  z-index: -1;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.cursor-glow:hover::before {
+.magnetic-button:hover::before {
   opacity: 1;
 }
 
