@@ -12,8 +12,8 @@ import {
 const TeamSection = () => {
   return (
     <section className="split-section" id="team">
-      {/* Left Half - Team Intro */}
-      <div className="split-half black">
+      {/* Left Half - Team Intro (White Background) */}
+      <div className="split-half white">
         <div className="w-full max-w-2xl">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -21,30 +21,30 @@ const TeamSection = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="display-large mb-6">We hire the right humans</h2>
-            <p className="body-large text-text-secondary mb-8">
+            <h2 className="display-large mb-6 text-gray-900">We hire the right humans</h2>
+            <p className="body-large text-gray-600 mb-8">
               Our team combines deep technical expertise with creative problem-solving. 
               Meet the people who will transform your vision into reality.
             </p>
             
             <div className="space-y-6">
-              <div className="flex items-center gap-4 p-4 bg-bg-overlay border border-border-subtle">
+              <div className="flex items-center gap-4 p-4 bg-gray-50 border border-gray-200">
                 <div className="w-12 h-12 bg-brand-primary rounded-full flex items-center justify-center">
-                  <span className="text-black font-bold">12</span>
+                  <span className="text-white font-bold">12</span>
                 </div>
                 <div>
-                  <h4 className="heading-3">Senior Specialists</h4>
-                  <p className="body-small text-text-muted">10+ years average experience</p>
+                  <h4 className="heading-3 text-gray-900">Senior Specialists</h4>
+                  <p className="body-small text-gray-600">10+ years average experience</p>
                 </div>
               </div>
               
-              <div className="flex items-center gap-4 p-4 bg-bg-overlay border border-border-subtle">
+              <div className="flex items-center gap-4 p-4 bg-gray-50 border border-gray-200">
                 <div className="w-12 h-12 bg-brand-primary rounded-full flex items-center justify-center">
-                  <span className="text-black font-bold">4</span>
+                  <span className="text-white font-bold">4</span>
                 </div>
                 <div>
-                  <h4 className="heading-3">Core Disciplines</h4>
-                  <p className="body-small text-text-muted">Design, Engineering, AI, Growth</p>
+                  <h4 className="heading-3 text-gray-900">Core Disciplines</h4>
+                  <p className="body-small text-gray-600">Design, Engineering, AI, Growth</p>
                 </div>
               </div>
             </div>
@@ -77,23 +77,20 @@ const TeamSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="group bg-bg-overlay border border-border-subtle overflow-hidden hover:border-brand-primary transition-all duration-500"
+                className="group bg-gray-800 border border-gray-700 overflow-hidden hover:border-brand-primary transition-all duration-500"
               >
-                {/* Video Preview Section */}
                 <div className="relative h-48 bg-gradient-to-br from-brand-primary/20 to-transparent flex items-center justify-center overflow-hidden">
-                  {/* Placeholder for video - in real implementation, this would be actual video */}
                   <div className="absolute inset-0 bg-gradient-to-br from-black/50 to-transparent" />
                   <motion.div 
                     className="relative z-10 flex flex-col items-center text-center"
                     whileHover={{ scale: 1.05 }}
                   >
                     <div className="w-20 h-20 bg-brand-primary rounded-full flex items-center justify-center mb-4 cursor-pointer">
-                      <Play className="text-black ml-1" size={24} />
+                      <Play className="text-white ml-1" size={24} />
                     </div>
                     <p className="body-small text-white">Watch {member.name} at work</p>
                   </motion.div>
                   
-                  {/* Animated background elements */}
                   <div className="absolute inset-0 opacity-30">
                     {[...Array(5)].map((_, i) => (
                       <motion.div
@@ -117,11 +114,10 @@ const TeamSection = () => {
                   </div>
                 </div>
                 
-                {/* Member Info */}
                 <div className="p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div>
-                      <h3 className="heading-3 group-hover:text-brand-primary transition-colors">
+                      <h3 className="heading-3 group-hover:text-brand-primary transition-colors text-white">
                         {member.name}
                       </h3>
                       <p className="body-medium text-brand-primary font-semibold">
@@ -129,17 +125,16 @@ const TeamSection = () => {
                       </p>
                     </div>
                     
-                    {/* Social Links */}
                     <div className="flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                       <motion.button 
-                        className="p-2 bg-bg-overlay border border-border-subtle hover:border-brand-primary text-text-muted hover:text-brand-primary transition-colors"
+                        className="p-2 bg-gray-700 border border-gray-600 hover:border-brand-primary text-gray-400 hover:text-brand-primary transition-colors"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                       >
                         <Linkedin size={16} />
                       </motion.button>
                       <motion.button 
-                        className="p-2 bg-bg-overlay border border-border-subtle hover:border-brand-primary text-text-muted hover:text-brand-primary transition-colors"
+                        className="p-2 bg-gray-700 border border-gray-600 hover:border-brand-primary text-gray-400 hover:text-brand-primary transition-colors"
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                       >
@@ -148,7 +143,7 @@ const TeamSection = () => {
                     </div>
                   </div>
                   
-                  <p className="body-small text-text-secondary mb-4">
+                  <p className="body-small text-gray-300 mb-4">
                     {member.expertise}
                   </p>
                   

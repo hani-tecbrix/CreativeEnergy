@@ -51,13 +51,11 @@ const ContactSection = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 2000));
     
     setIsSubmitting(false);
     setIsSubmitted(true);
     
-    // Reset form after 3 seconds
     setTimeout(() => {
       setIsSubmitted(false);
       setFormData({
@@ -79,8 +77,8 @@ const ContactSection = () => {
 
   return (
     <section className="split-section" id="contact">
-      {/* Left Half - Contact Info */}
-      <div className="split-half black">
+      {/* Left Half - Contact Info (White Background) */}
+      <div className="split-half white">
         <div className="w-full max-w-2xl">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -88,19 +86,19 @@ const ContactSection = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="display-large mb-6">Start your transformation</h2>
-            <p className="body-large text-text-secondary mb-8">
+            <h2 className="display-large mb-6 text-gray-900">Start your transformation</h2>
+            <p className="body-large text-gray-600 mb-8">
               Ready to turn your vision into reality? Let's discuss how we can help you achieve breakthrough results.
             </p>
             
             <div className="space-y-6 mb-8">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-brand-primary rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-black font-bold">1</span>
+                  <span className="text-white font-bold">1</span>
                 </div>
                 <div>
-                  <h4 className="heading-3 mb-2">Quick Brief</h4>
-                  <p className="body-medium text-text-secondary">
+                  <h4 className="heading-3 mb-2 text-gray-900">Quick Brief</h4>
+                  <p className="body-medium text-gray-600">
                     Tell us about your challenge in 3 fields
                   </p>
                 </div>
@@ -108,11 +106,11 @@ const ContactSection = () => {
               
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-brand-primary rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-black font-bold">2</span>
+                  <span className="text-white font-bold">2</span>
                 </div>
                 <div>
-                  <h4 className="heading-3 mb-2">Choose Next Step</h4>
-                  <p className="body-medium text-text-secondary">
+                  <h4 className="heading-3 mb-2 text-gray-900">Choose Next Step</h4>
+                  <p className="body-medium text-gray-600">
                     Call, workshop, or full RFP - your choice
                   </p>
                 </div>
@@ -120,20 +118,20 @@ const ContactSection = () => {
               
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 bg-brand-primary rounded-full flex items-center justify-center flex-shrink-0">
-                  <span className="text-black font-bold">3</span>
+                  <span className="text-white font-bold">3</span>
                 </div>
                 <div>
-                  <h4 className="heading-3 mb-2">Get Started</h4>
-                  <p className="body-medium text-text-secondary">
+                  <h4 className="heading-3 mb-2 text-gray-900">Get Started</h4>
+                  <p className="body-medium text-gray-600">
                     Response within 24 hours guaranteed
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-brand-hover border border-brand-primary p-6">
-              <h4 className="heading-3 text-brand-primary mb-2">24-Hour Response Guarantee</h4>
-              <p className="body-medium">
+            <div className="bg-brand-primary border border-brand-primary p-6">
+              <h4 className="heading-3 text-white mb-2">24-Hour Response Guarantee</h4>
+              <p className="body-medium text-white/90">
                 We'll review your brief and get back to you with next steps within one business day.
               </p>
             </div>
@@ -152,10 +150,9 @@ const ContactSection = () => {
           >
             {!isSubmitted ? (
               <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Basic Info */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block body-medium text-text-primary mb-2">
+                    <label className="block body-medium text-white mb-2">
                       Name *
                     </label>
                     <input
@@ -164,13 +161,13 @@ const ContactSection = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full p-4 bg-bg-overlay border border-border-subtle text-text-primary placeholder-text-muted focus:border-brand-primary focus:outline-none transition-colors"
+                      className="w-full p-4 bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors"
                       placeholder="Your full name"
                     />
                   </div>
                   
                   <div>
-                    <label className="block body-medium text-text-primary mb-2">
+                    <label className="block body-medium text-white mb-2">
                       Email *
                     </label>
                     <input
@@ -179,14 +176,14 @@ const ContactSection = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full p-4 bg-bg-overlay border border-border-subtle text-text-primary placeholder-text-muted focus:border-brand-primary focus:outline-none transition-colors"
+                      className="w-full p-4 bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors"
                       placeholder="you@company.com"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block body-medium text-text-primary mb-2">
+                  <label className="block body-medium text-white mb-2">
                     Company
                   </label>
                   <input
@@ -194,14 +191,13 @@ const ContactSection = () => {
                     name="company"
                     value={formData.company}
                     onChange={handleInputChange}
-                    className="w-full p-4 bg-bg-overlay border border-border-subtle text-text-primary placeholder-text-muted focus:border-brand-primary focus:outline-none transition-colors"
+                    className="w-full p-4 bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors"
                     placeholder="Your company name"
                   />
                 </div>
 
-                {/* Challenge Description */}
                 <div>
-                  <label className="block body-medium text-text-primary mb-2">
+                  <label className="block body-medium text-white mb-2">
                     Challenge Description *
                   </label>
                   <textarea
@@ -210,14 +206,13 @@ const ContactSection = () => {
                     onChange={handleInputChange}
                     required
                     rows={4}
-                    className="w-full p-4 bg-bg-overlay border border-border-subtle text-text-primary placeholder-text-muted focus:border-brand-primary focus:outline-none transition-colors resize-none"
+                    className="w-full p-4 bg-gray-800 border border-gray-700 text-white placeholder-gray-400 focus:border-brand-primary focus:outline-none transition-colors resize-none"
                     placeholder="Describe your challenge, goals, and timeline..."
                   />
                 </div>
 
-                {/* File Upload */}
                 <div>
-                  <label className="block body-medium text-text-primary mb-2">
+                  <label className="block body-medium text-white mb-2">
                     Attach File (Optional)
                   </label>
                   <div className="relative">
@@ -230,21 +225,21 @@ const ContactSection = () => {
                     />
                     <label 
                       htmlFor="file-upload"
-                      className="w-full p-4 bg-bg-overlay border border-border-subtle border-dashed text-text-muted hover:border-brand-primary hover:text-brand-primary transition-colors cursor-pointer flex items-center justify-center gap-3"
+                      className="w-full p-4 bg-gray-800 border border-gray-700 border-dashed text-gray-400 hover:border-brand-primary hover:text-brand-primary transition-colors cursor-pointer flex items-center justify-center gap-3"
                     >
                       <Upload size={20} />
                       <span>Upload brief, requirements, or relevant documents</span>
                     </label>
                     
                     {formData.file && (
-                      <div className="mt-2 flex items-center justify-between p-3 bg-brand-hover border border-brand-primary">
-                        <span className="body-small text-brand-primary">
+                      <div className="mt-2 flex items-center justify-between p-3 bg-brand-primary border border-brand-primary">
+                        <span className="body-small text-white">
                           {formData.file.name}
                         </span>
                         <button
                           type="button"
                           onClick={removeFile}
-                          className="text-text-muted hover:text-brand-primary transition-colors"
+                          className="text-white hover:text-gray-200 transition-colors"
                         >
                           <X size={16} />
                         </button>
@@ -253,9 +248,8 @@ const ContactSection = () => {
                   </div>
                 </div>
 
-                {/* Next Step Selection */}
                 <div>
-                  <label className="block body-medium text-text-primary mb-2">
+                  <label className="block body-medium text-white mb-2">
                     Preferred Next Step
                   </label>
                   <div className="grid grid-cols-1 gap-3">
@@ -266,8 +260,8 @@ const ContactSection = () => {
                           key={option.value}
                           className={`flex items-center gap-4 p-4 border-2 cursor-pointer transition-all duration-300 ${
                             formData.nextStep === option.value
-                              ? 'border-brand-primary bg-brand-hover'
-                              : 'border-border-subtle bg-bg-overlay hover:border-brand-primary'
+                              ? 'border-brand-primary bg-brand-primary/10'
+                              : 'border-gray-700 bg-gray-800 hover:border-brand-primary'
                           }`}
                           whileHover={{ scale: 1.02 }}
                           whileTap={{ scale: 0.98 }}
@@ -282,10 +276,10 @@ const ContactSection = () => {
                           />
                           <Icon 
                             size={20} 
-                            className={formData.nextStep === option.value ? 'text-brand-primary' : 'text-text-muted'} 
+                            className={formData.nextStep === option.value ? 'text-brand-primary' : 'text-gray-400'} 
                           />
                           <span className={`body-medium ${
-                            formData.nextStep === option.value ? 'text-brand-primary' : 'text-text-primary'
+                            formData.nextStep === option.value ? 'text-brand-primary' : 'text-white'
                           }`}>
                             {option.label}
                           </span>
@@ -295,7 +289,6 @@ const ContactSection = () => {
                   </div>
                 </div>
 
-                {/* Submit Button */}
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
@@ -330,10 +323,10 @@ const ContactSection = () => {
               >
                 <CheckCircle className="text-brand-primary mx-auto mb-6" size={64} />
                 <h3 className="heading-2 text-brand-primary mb-4">Brief Received!</h3>
-                <p className="body-large text-text-secondary mb-6">
+                <p className="body-large text-gray-300 mb-6">
                   Thank you for your submission. We'll review your brief and get back to you within 24 hours.
                 </p>
-                <p className="body-medium text-text-muted">
+                <p className="body-medium text-gray-400">
                   Check your email for a confirmation and next steps.
                 </p>
               </motion.div>
