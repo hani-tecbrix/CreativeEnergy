@@ -20,9 +20,14 @@
   --border-medium: rgba(255, 255, 255, 0.4);  /* Standard borders */
   
   /* MAIN ACCENT COLORS - Brand Colors Only */
-  --brand-primary: #00FFD1;        /* Primary brand cyan-green */
-  --brand-hover: rgba(0, 255, 209, 0.1); /* Hover backgrounds */
-  --brand-active: #6FD2C0;         /* Active states */
+  --brand-primary: #FF5B4D;        /* Primary brand coral-red */
+  --brand-hover: rgba(255, 91, 77, 0.1); /* Hover backgrounds */
+  --brand-active: #FF7A6B;         /* Active states */
+  
+  /* Section Background Colors */
+  --bg-white: #FFFFFF;
+  --bg-grey: #F5F5F5;
+  --bg-primary-bg: #FF5B4D;
 }
 
 /* Reset and base styles */
