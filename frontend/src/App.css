@@ -205,10 +205,10 @@ body {
   transform: scale(0.98);
 }
 
-/* Navigation Header */
+/* Navigation Header - White Background */
 .dark-header {
-  background: var(--bg-primary);
-  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-white);
+  border-bottom: 1px solid #E5E5E5;
   padding: 16px 7.6923%;
   display: flex;
   align-items: center;
@@ -234,7 +234,7 @@ body {
 }
 
 .dark-nav-link {
-  color: var(--text-muted);
+  color: #6B7280;
   text-decoration: none;
   font-size: 18px;
   font-weight: 400;
@@ -242,11 +242,11 @@ body {
 }
 
 .dark-nav-link:hover {
-  color: var(--text-primary);
+  color: var(--brand-primary);
 }
 
 .dark-nav-link.active {
-  color: var(--brand-active);
+  color: var(--brand-primary);
 }
 
 /* Layout System */
