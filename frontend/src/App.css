@@ -23,6 +23,11 @@
   --brand-primary: #00FFD1;        /* Primary brand cyan-green */
   --brand-hover: rgba(0, 255, 209, 0.1); /* Hover backgrounds */
   --brand-active: #6FD2C0;         /* Active states */
+  
+  /* PRIMARY ACCENT COLORS */
+  --accent-primary: #FF5B4D;       /* Primary accent red-orange */
+  --accent-hover: rgba(255, 91, 77, 0.1); /* Accent hover backgrounds */
+  --accent-active: #E54A3B;        /* Accent active states */
 }
 
 /* Reset and base styles */
