@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import Spline from '@splinetool/react-spline';
 
-const HeroSection = ({ mousePosition }) => {
+const HeroSection = ({ mousePosition, onMouseEnter, onMouseLeave }) => {
   const heroRef = useRef(null);
 
   // Update CSS custom properties for cursor glow effect
@@ -17,7 +17,7 @@ const HeroSection = ({ mousePosition }) => {
   return (
     <section className="split-section cursor-glow" ref={heroRef}>
       {/* Left Half - Content */}
-      <div className="split-half black">
+      <div className="split-half black scroll-reveal-left">
         <div className="max-w-2xl">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -44,18 +44,22 @@ const HeroSection = ({ mousePosition }) => {
             
             <div className="flex flex-col sm:flex-row gap-6">
               <motion.button 
-                className="btn-primary"
+                className="btn-primary magnetic-button"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
+                onMouseEnter={onMouseEnter}
+                onMouseLeave={onMouseLeave}
               >
                 Start Transformation
                 <ArrowRight size={20} />
               </motion.button>
               
               <motion.button 
-                className="btn-secondary"
+                className="btn-secondary magnetic-button"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
+                onMouseEnter={onMouseEnter}
+                onMouseLeave={onMouseLeave}
               >
                 See Industry Demos
               </motion.button>
@@ -65,7 +69,7 @@ const HeroSection = ({ mousePosition }) => {
       </div>
 
       {/* Right Half - 3D Energy Core */}
-      <div className="split-half content relative overflow-hidden">
+      <div className="split-half content relative overflow-hidden scroll-reveal-right">
         <div className="absolute inset-0 flex items-center justify-center">
           <Suspense fallback={
             <div className="flex items-center justify-center w-full h-full">
@@ -76,13 +80,16 @@ const HeroSection = ({ mousePosition }) => {
               />
             </div>
           }>
-            <div style={{ width: "700px", height: "700px", overflow: "visible", position: "relative" }}>
+            <div 
+              style={{ width: "700px", height: "700px", overflow: "visible", position: "relative" }}
+              className="parallax-element hover-glow"
+            >
               <Spline scene="https://prod.spline.design/NbVmy6DPLhY-5Lvg/scene.splinecode" />
             </div>
           </Suspense>
         </div>
         
-        {/* Overlay particles effect */}
+        {/* Enhanced overlay particles effect with primary color */}
         <div className="absolute inset-0 pointer-events-none">
           {[...Array(20)].map((_, i) => (
             <motion.div
@@ -95,6 +102,7 @@ const HeroSection = ({ mousePosition }) => {
               animate={{
                 y: [0, -20, 0],
                 opacity: [0.6, 1, 0.6],
+                scale: [1, 1.5, 1],
               }}
               transition={{
                 duration: 2 + Math.random() * 2,
@@ -104,6 +112,14 @@ const HeroSection = ({ mousePosition }) => {
             />
           ))}
         </div>
+        
+        {/* Interactive cursor glow overlay */}
+        <div 
+          className="absolute inset-0 pointer-events-none opacity-0 hover:opacity-100 transition-opacity duration-500"
+          style={{
+            background: `radial-gradient(300px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255, 91, 77, 0.1), transparent)`
+          }}
+        />
       </div>
     </section>
   );
