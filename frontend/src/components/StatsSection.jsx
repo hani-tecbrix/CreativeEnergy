@@ -24,12 +24,11 @@ const StatsSection = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="display-large mb-6">Prove it</h2>
-            <p className="body-large text-text-secondary mb-12">
+            <h2 className="display-large mb-6 text-white">Prove it</h2>
+            <p className="body-large text-gray-300 mb-12">
               Numbers don't lie. Here's the measurable impact we've delivered for our clients.
             </p>
             
-            {/* Animated Stats */}
             <div className="grid grid-cols-2 gap-8 mb-12">
               {companyStats.map((stat, index) => {
                 const Icon = statIcons[index];
@@ -52,15 +51,14 @@ const StatsSection = () => {
                     >
                       {stat.value}{stat.suffix}
                     </motion.p>
-                    <p className="body-medium text-text-secondary">{stat.label}</p>
+                    <p className="body-medium text-gray-300">{stat.label}</p>
                   </motion.div>
                 );
               })}
             </div>
 
-            {/* Partner Logos */}
             <div>
-              <h3 className="heading-3 mb-6 text-center">Trusted Technology Partners</h3>
+              <h3 className="heading-3 mb-6 text-center text-white">Trusted Technology Partners</h3>
               <div className="grid grid-cols-3 gap-8">
                 {partnerLogos.map((partner, index) => (
                   <motion.div
@@ -69,9 +67,9 @@ const StatsSection = () => {
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="bg-bg-overlay border border-border-subtle p-4 flex items-center justify-center h-16 hover:border-brand-primary transition-colors duration-300"
+                    className="bg-gray-800 border border-gray-700 p-4 flex items-center justify-center h-16 hover:border-brand-primary transition-colors duration-300"
                   >
-                    <span className="body-medium text-text-muted font-semibold">
+                    <span className="body-medium text-gray-400 font-semibold">
                       {partner}
                     </span>
                   </motion.div>
@@ -91,7 +89,7 @@ const StatsSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h3 className="heading-2 mb-8">What our clients say</h3>
+            <h3 className="heading-2 mb-8 text-white">What our clients say</h3>
             
             <div className="space-y-8">
               {testimonials.map((testimonial, index) => (
@@ -101,7 +99,7 @@ const StatsSection = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.2 }}
                   viewport={{ once: true }}
-                  className="bg-bg-overlay border border-border-subtle p-8 relative"
+                  className="bg-gray-800 border border-gray-700 p-8 relative"
                 >
                   <Quote className="absolute top-4 right-4 text-brand-primary opacity-50" size={24} />
                   
@@ -112,12 +110,12 @@ const StatsSection = () => {
                       className="w-16 h-16 rounded-full object-cover border-2 border-brand-primary"
                     />
                     <div>
-                      <h4 className="heading-3">{testimonial.name}</h4>
-                      <p className="body-small text-text-muted">{testimonial.role}</p>
+                      <h4 className="heading-3 text-white">{testimonial.name}</h4>
+                      <p className="body-small text-gray-400">{testimonial.role}</p>
                     </div>
                   </div>
                   
-                  <p className="body-large text-text-secondary mb-4 italic">
+                  <p className="body-large text-gray-300 mb-4 italic">
                     "{testimonial.content}"
                   </p>
                   

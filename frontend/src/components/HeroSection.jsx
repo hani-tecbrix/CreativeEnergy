@@ -6,7 +6,6 @@ import Spline from '@splinetool/react-spline';
 const HeroSection = ({ mousePosition, onMouseEnter, onMouseLeave }) => {
   const heroRef = useRef(null);
 
-  // Update CSS custom properties for cursor glow effect
   useEffect(() => {
     if (heroRef.current) {
       heroRef.current.style.setProperty('--mouse-x', `${mousePosition.x}px`);
@@ -16,7 +15,7 @@ const HeroSection = ({ mousePosition, onMouseEnter, onMouseLeave }) => {
 
   return (
     <section className="split-section cursor-glow" ref={heroRef}>
-      {/* Left Half - Content */}
+      {/* Left Half - Content (Black Background) */}
       <div className="split-half black scroll-reveal-left">
         <div className="max-w-2xl">
           <motion.div
@@ -29,7 +28,7 @@ const HeroSection = ({ mousePosition, onMouseEnter, onMouseLeave }) => {
               <span className="body-medium text-brand-primary">Transformations, engineered</span>
             </div>
             
-            <h1 className="display-huge mb-6">
+            <h1 className="display-huge mb-6 text-white">
               Design.{' '}
               <span className="text-brand-primary">Build.</span>{' '}
               Advise.{' '}
@@ -37,7 +36,7 @@ const HeroSection = ({ mousePosition, onMouseEnter, onMouseLeave }) => {
               Scale commerce.
             </h1>
             
-            <p className="body-large mb-12 text-text-secondary max-w-xl">
+            <p className="body-large mb-12 text-gray-300 max-w-xl">
               We transform ambitious ideas into market-leading digital products. 
               From concept to scale, we engineer solutions that matter.
             </p>
@@ -68,8 +67,8 @@ const HeroSection = ({ mousePosition, onMouseEnter, onMouseLeave }) => {
         </div>
       </div>
 
-      {/* Right Half - 3D Energy Core */}
-      <div className="split-half content relative overflow-hidden scroll-reveal-right">
+      {/* Right Half - 3D Energy Core (White Background) */}
+      <div className="split-half white relative overflow-hidden scroll-reveal-right">
         <div className="absolute inset-0 flex items-center justify-center">
           <Suspense fallback={
             <div className="flex items-center justify-center w-full h-full">
@@ -89,37 +88,34 @@ const HeroSection = ({ mousePosition, onMouseEnter, onMouseLeave }) => {
           </Suspense>
         </div>
         
-        {/* Enhanced overlay particles effect with primary color */}
+        {/* Enhanced overlay particles with diverse colors */}
         <div className="absolute inset-0 pointer-events-none">
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute w-1 h-1 bg-brand-primary rounded-full opacity-60"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [0, -20, 0],
-                opacity: [0.6, 1, 0.6],
-                scale: [1, 1.5, 1],
-              }}
-              transition={{
-                duration: 2 + Math.random() * 2,
-                repeat: Infinity,
-                delay: Math.random() * 2,
-              }}
-            />
-          ))}
+          {[...Array(20)].map((_, i) => {
+            const colors = ['#FF5B4D', '#00C4FF', '#7C3AED', '#10B981', '#F59E0B'];
+            const color = colors[i % colors.length];
+            return (
+              <motion.div
+                key={i}
+                className="absolute w-1 h-1 rounded-full opacity-60"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`,
+                  backgroundColor: color,
+                }}
+                animate={{
+                  y: [0, -20, 0],
+                  opacity: [0.6, 1, 0.6],
+                  scale: [1, 1.5, 1],
+                }}
+                transition={{
+                  duration: 2 + Math.random() * 2,
+                  repeat: Infinity,
+                  delay: Math.random() * 2,
+                }}
+              />
+            );
+          })}
         </div>
-        
-        {/* Interactive cursor glow overlay */}
-        <div 
-          className="absolute inset-0 pointer-events-none opacity-0 hover:opacity-100 transition-opacity duration-500"
-          style={{
-            background: `radial-gradient(300px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255, 91, 77, 0.1), transparent)`
-          }}
-        />
       </div>
     </section>
   );

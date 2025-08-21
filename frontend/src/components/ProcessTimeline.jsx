@@ -34,8 +34,8 @@ const ProcessTimeline = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="display-large mb-6">How we transform</h2>
-            <p className="body-large text-text-secondary mb-12">
+            <h2 className="display-large mb-6 text-white">How we transform</h2>
+            <p className="body-large text-gray-300 mb-12">
               Our proven 5-stage process takes you from idea to market leadership.
             </p>
             
@@ -50,18 +50,18 @@ const ProcessTimeline = () => {
                     key={step.id}
                     className={`w-full flex items-start gap-4 p-4 text-left transition-all duration-300 ${
                       isActive 
-                        ? 'bg-brand-hover border-l-4 border-brand-primary' 
-                        : 'hover:bg-bg-overlay border-l-4 border-transparent'
+                        ? 'bg-gray-800 border-l-4 border-brand-primary' 
+                        : 'hover:bg-gray-900 border-l-4 border-transparent'
                     }`}
                     onClick={() => setActiveStep(step.id)}
                     whileHover={{ x: 5 }}
                   >
                     <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
                       isActive 
-                        ? 'bg-brand-primary text-black' 
+                        ? 'bg-brand-primary text-white' 
                         : isCompleted 
-                          ? 'bg-brand-active text-black'
-                          : 'bg-bg-overlay text-text-muted'
+                          ? 'bg-gray-600 text-white'
+                          : 'bg-gray-700 text-gray-400'
                     }`}>
                       {isCompleted ? (
                         <CheckCircle size={20} />
@@ -72,14 +72,14 @@ const ProcessTimeline = () => {
                     
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-1">
-                        <h3 className={`heading-3 ${isActive ? 'text-brand-primary' : 'text-text-primary'}`}>
+                        <h3 className={`heading-3 ${isActive ? 'text-brand-primary' : 'text-white'}`}>
                           {step.title}
                         </h3>
-                        <span className="body-small text-text-muted">
+                        <span className="body-small text-gray-400">
                           {step.duration}
                         </span>
                       </div>
-                      <p className="body-small text-text-secondary">
+                      <p className="body-small text-gray-300">
                         {step.description}
                       </p>
                     </div>
@@ -107,25 +107,24 @@ const ProcessTimeline = () => {
                   <div className="w-16 h-16 bg-brand-primary rounded-full flex items-center justify-center">
                     {React.createElement(stepIcons[activeStepData.id], { 
                       size: 24, 
-                      className: "text-black" 
+                      className: "text-white" 
                     })}
                   </div>
                   <div>
-                    <h3 className="heading-2">{activeStepData.title}</h3>
-                    <p className="body-medium text-text-secondary">{activeStepData.duration}</p>
+                    <h3 className="heading-2 text-white">{activeStepData.title}</h3>
+                    <p className="body-medium text-gray-300">{activeStepData.duration}</p>
                   </div>
                 </div>
                 
-                <p className="body-large text-text-secondary mb-8">
+                <p className="body-large text-gray-300 mb-8">
                   {activeStepData.description}
                 </p>
               </div>
 
-              {/* Live Demo Section */}
-              <div className="bg-bg-overlay border border-border-subtle p-8">
+              <div className="bg-gray-800 border border-gray-700 p-8">
                 <div className="flex items-center gap-3 mb-6">
                   <Play className="text-brand-primary" size={20} />
-                  <span className="heading-3">Live Demo</span>
+                  <span className="heading-3 text-white">Live Demo</span>
                 </div>
                 
                 <div className="bg-black p-6 border border-brand-primary">
@@ -133,19 +132,18 @@ const ProcessTimeline = () => {
                     <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                     <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                    <span className="body-small text-text-muted ml-4">
+                    <span className="body-small text-gray-400 ml-4">
                       {activeStepData.demo}
                     </span>
                   </div>
                   
-                  {/* Simulated Demo Content */}
                   <div className="space-y-3">
                     {activeStep === 'discover' && (
                       <>
                         <div className="text-brand-primary">$ analyzing-market-opportunity</div>
-                        <div className="text-text-secondary pl-4">→ Competitor analysis: 15 key players identified</div>
-                        <div className="text-text-secondary pl-4">→ Market size: $2.3B TAM, $450M SAM</div>
-                        <div className="text-text-secondary pl-4">→ User interviews: 45 completed</div>
+                        <div className="text-gray-300 pl-4">→ Competitor analysis: 15 key players identified</div>
+                        <div className="text-gray-300 pl-4">→ Market size: $2.3B TAM, $450M SAM</div>
+                        <div className="text-gray-300 pl-4">→ User interviews: 45 completed</div>
                         <div className="text-brand-primary">✓ Discovery complete</div>
                       </>
                     )}
@@ -153,9 +151,9 @@ const ProcessTimeline = () => {
                     {activeStep === 'prototype' && (
                       <>
                         <div className="text-brand-primary">$ building-interactive-prototype</div>
-                        <div className="text-text-secondary pl-4">→ Wireframes: 23 screens designed</div>
-                        <div className="text-text-secondary pl-4">→ User flows: 8 critical paths mapped</div>
-                        <div className="text-text-secondary pl-4">→ Figma prototype: 87% click-through rate</div>
+                        <div className="text-gray-300 pl-4">→ Wireframes: 23 screens designed</div>
+                        <div className="text-gray-300 pl-4">→ User flows: 8 critical paths mapped</div>
+                        <div className="text-gray-300 pl-4">→ Figma prototype: 87% click-through rate</div>
                         <div className="text-brand-primary">✓ Prototype validated</div>
                       </>
                     )}
@@ -163,9 +161,9 @@ const ProcessTimeline = () => {
                     {activeStep === 'build' && (
                       <>
                         <div className="text-brand-primary">$ deploying-scalable-architecture</div>
-                        <div className="text-text-secondary pl-4">→ Backend: FastAPI + PostgreSQL</div>
-                        <div className="text-text-secondary pl-4">→ Frontend: React + TypeScript</div>
-                        <div className="text-text-secondary pl-4">→ Infrastructure: AWS + Docker</div>
+                        <div className="text-gray-300 pl-4">→ Backend: FastAPI + PostgreSQL</div>
+                        <div className="text-gray-300 pl-4">→ Frontend: React + TypeScript</div>
+                        <div className="text-gray-300 pl-4">→ Infrastructure: AWS + Docker</div>
                         <div className="text-brand-primary">✓ MVP deployed</div>
                       </>
                     )}
@@ -173,9 +171,9 @@ const ProcessTimeline = () => {
                     {activeStep === 'integrate-ai' && (
                       <>
                         <div className="text-brand-primary">$ training-custom-ai-models</div>
-                        <div className="text-text-secondary pl-4">→ Dataset: 100K samples processed</div>
-                        <div className="text-text-secondary pl-4">→ Model accuracy: 94.2%</div>
-                        <div className="text-text-secondary pl-4">→ API latency: 150ms average</div>
+                        <div className="text-gray-300 pl-4">→ Dataset: 100K samples processed</div>
+                        <div className="text-gray-300 pl-4">→ Model accuracy: 94.2%</div>
+                        <div className="text-gray-300 pl-4">→ API latency: 150ms average</div>
                         <div className="text-brand-primary">✓ AI integration complete</div>
                       </>
                     )}
@@ -183,9 +181,9 @@ const ProcessTimeline = () => {
                     {activeStep === 'scale' && (
                       <>
                         <div className="text-brand-primary">$ optimizing-for-growth</div>
-                        <div className="text-text-secondary pl-4">→ Performance: 99.9% uptime</div>
-                        <div className="text-text-secondary pl-4">→ Users: 10K→50K in 3 months</div>
-                        <div className="text-text-secondary pl-4">→ Revenue: $1M ARR achieved</div>
+                        <div className="text-gray-300 pl-4">→ Performance: 99.9% uptime</div>
+                        <div className="text-gray-300 pl-4">→ Users: 10K→50K in 3 months</div>
+                        <div className="text-gray-300 pl-4">→ Revenue: $1M ARR achieved</div>
                         <div className="text-brand-primary">✓ Scale targets met</div>
                       </>
                     )}
