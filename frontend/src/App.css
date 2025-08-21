@@ -276,6 +276,35 @@ body {
   background: var(--bg-primary);
 }
 
+.split-half.white {
+  background: var(--bg-white);
+  color: var(--bg-primary);
+}
+
+.split-half.white h1,
+.split-half.white h2,
+.split-half.white h3,
+.split-half.white h4 {
+  color: var(--bg-primary);
+}
+
+.split-half.grey {
+  background: var(--bg-grey);
+  color: var(--bg-primary);
+}
+
+.split-half.grey h1,
+.split-half.grey h2,
+.split-half.grey h3,
+.split-half.grey h4 {
+  color: var(--bg-primary);
+}
+
+.split-half.primary {
+  background: var(--bg-primary-bg);
+  color: white;
+}
+
 .split-half.content {
   background: var(--bg-secondary);
 }
